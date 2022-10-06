@@ -7,17 +7,12 @@ body{
   background-color:#fafaee;
 }
 
-LocalLibraryIcon{
-  font-size: larger;
-}
-
 .logo{
   color: black;
   font-family: Lato, Helvetica, sans-serif;
   font-size: 36px;
   display: flex;
   flex-direction: row;
-  padding-left: 5vh;
 }
 
 h1{
