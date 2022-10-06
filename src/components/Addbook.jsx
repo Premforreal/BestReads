@@ -1,76 +1,76 @@
 import React,{useState} from 'react';
-import {useNavigation} from 'react-router-dom';
-import {TextField} from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
 import './Book/book.css';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 function Addbook() {
-  const [checked,setChecked] = useState(false)
+  const history = useNavigate();
   const [inputs, setInputs] = useState({
-    name:'',
-    description:'',
-    price:'',
-    author:'',
-    available:checked,
-    image:''
-  })
+    name: "",
+    description: "",
+    price: "",
+    author: "",
+    image: "",
+  });
+  const [checked, setChecked] = useState(false);
+  const handleChange = (e) => {
+    setInputs((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
+  const sendRequest = async () => {
+    await axios
+      .post("http://localhost:5000/books", {
+        name: String(inputs.name),
+        author: String(inputs.author),
+        description: String(inputs.description),
+        price: Number(inputs.price),
+        image: String(inputs.image),
+        available: Boolean(checked),
+      })
+      .then((res) => res.data);
+  };
 
-function handleChange(e){
-  setInputs((prevState)=>({
-    ...prevState,[e.target.name]:e.target.value
-  }))
-}
-
-const sendRequest = async()=>{
-  axios.post("http://localhost:5000/books",{
-    name : String(inputs.name),
-    description : String(inputs.description),
-    price : Number(inputs.price),
-    author : String(inputs.author),
-    available : Boolean(checked),
-    image : String(inputs.image),
-  }).then(res=>res.data);
-}
-
-function handleSubmit(e){
-  e.preventDefault();
-  sendRequest().then(  )
-} 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    sendRequest().then(() => history("/books"));
+  };
   
   return (
-<div class="container">
+<div className="container">
             <h1>Add Book</h1>
             <form onSubmit={handleSubmit}>
-                <div class="form-control">
+                <div className="form-control">
                     <input name='name' value={inputs.name} onChange={(e)=>handleChange(e)} type="text" required />
                     <label>Name</label>
                 </div>
         
-                <div class="form-control">
+                <div className="form-control">
                     <input name='author' type="text" required value={inputs.author} onChange={handleChange}/>
                     <label>Author</label>
                 </div>
 
-                <div class="form-control">
+                <div className="form-control">
                     <input name='description' type="text" required value={inputs.description} onChange={handleChange}/>
                     <label>Description</label>
                 </div>
 
-                <div class="form-control">
+                <div className="form-control">
                     <input name='price' type="number" required value={inputs.price} onChange={handleChange}/>
                     <label>Price</label>
                 </div>
 
-                <div class="form-control">
+                <div className="form-control">
                     <input name='image' type="text" required value={inputs.image} onChange={handleChange}/>
                     <label>Image</label>
                 </div>
 
                 Available : <Checkbox name='available' checked={checked} onChange={()=>setChecked(!checked)}/>  
 
-                <button class="btn">Add</button>
+                <button className="btn">Add</button>
 
             </form>
         </div>

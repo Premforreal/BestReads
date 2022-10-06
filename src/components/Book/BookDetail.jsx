@@ -1,15 +1,20 @@
-import {Checkbox} from "@mui/material";
+import {
+  Box,
+  Button,
+  Checkbox,
+  FormControlLabel,
+  FormLabel,
+  TextField,
+} from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const BookDetail = () => {
-  
   const [inputs, setInputs] = useState();
   const id = useParams().id;
   const [checked, setChecked] = useState(false);
   const history = useNavigate();
-  
   useEffect(() => {
     const fetchHandler = async () => {
       await axios
@@ -32,13 +37,10 @@ const BookDetail = () => {
       })
       .then((res) => res.data);
   };
-  
   const handleSubmit = (e) => {
     e.preventDefault();
     sendRequest().then(() => history("/books"));
   };
-  
-  
   const handleChange = (e) => {
     setInputs((prevState) => ({
       ...prevState,
@@ -46,42 +48,97 @@ const BookDetail = () => {
     }));
   };
 
-
-  return (
-    <div class="container"><h1>Update Book</h1>
+  return (<>
+      {inputs && (
+    <div className="container"><h1>Update Book</h1>
       <form onSubmit={handleSubmit}>
-                <div class="form-control">
+                <div className="form-control">
                     <input name='name' value={inputs.name} onChange={(e)=>handleChange(e)} type="text" required />
                     <label>Name</label>
                 </div>
         
-                <div class="form-control">
+                <div className="form-control">
                     <input name='author' type="text" required value={inputs.author} onChange={handleChange}/>
                     <label>Author</label>
                 </div>
 
-                <div class="form-control">
+                <div className="form-control">
                     <input name='description' type="text" required value={inputs.description} onChange={handleChange}/>
                     <label>Description</label>
                 </div>
 
-                <div class="form-control">
+                <div className="form-control">
                     <input name='price' type="number" required value={inputs.price} onChange={handleChange}/>
                     <label>Price</label>
                 </div>
 
-                <div class="form-control">
+                <div className="form-control">
                     <input name='image' type="text" required value={inputs.image} onChange={handleChange}/>
                     <label>Image</label>
                 </div>
 
                 Available : <Checkbox name='available' checked={checked} onChange={()=>setChecked(!checked)}/>  
 
-                <button class="btn">Update</button>
+                <button className="btn">Update</button>
 
             </form>
     </div>
-  )
-}
+  )}
+  </>)
+};
 
-export default BookDetail
+export default BookDetail;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   return (
+//     <div className="container"><h1>Update Book</h1>
+//       <form onSubmit={handleSubmit}>
+//                 <div className="form-control">
+//                     <input name='name' value={inputs.name} onChange={(e)=>handleChange(e)} type="text" required />
+//                     <label>Name</label>
+//                 </div>
+        
+//                 <div className="form-control">
+//                     <input name='author' type="text" required value={inputs.author} onChange={handleChange}/>
+//                     <label>Author</label>
+//                 </div>
+
+//                 <div className="form-control">
+//                     <input name='description' type="text" required value={inputs.description} onChange={handleChange}/>
+//                     <label>Description</label>
+//                 </div>
+
+//                 <div className="form-control">
+//                     <input name='price' type="number" required value={inputs.price} onChange={handleChange}/>
+//                     <label>Price</label>
+//                 </div>
+
+//                 <div className="form-control">
+//                     <input name='image' type="text" required value={inputs.image} onChange={handleChange}/>
+//                     <label>Image</label>
+//                 </div>
+
+//                 Available : <Checkbox name='available' checked={checked} onChange={()=>setChecked(!checked)}/>  
+
+//                 <button className="btn">Update</button>
+
+//             </form>
+//     </div>
+//   )
+
+// export default BookDetail

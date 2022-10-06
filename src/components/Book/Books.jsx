@@ -18,7 +18,7 @@ function Books() {
   return (
     <div className='Books'>
         {books && books.map((book,i)=>(
-              <Book key={i} book={book}/>
+              <Book key={i} book={book} />
         ))}
     </div>
   )
