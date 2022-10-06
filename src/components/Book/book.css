@@ -44,14 +44,83 @@ img:hover{
     margin: 1%;
     border-radius: 1vh;
     background-color:white;
-    transition: transform 0.1s;
+    transition: transform 0.2s;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .card-details:hover {
-transform: scale(105%); 
+transform: scale(101%); 
 }
 
 h2{
     font-weight: 500;
+}
+
+
+/*----------------------------------------------------------------------------*/
+
+.container {
+    background-color:whitesmoke;
+    font-size: 18px;
+    margin:1% 25% ;
+    padding: 1%;
+    border-radius: 5px;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn {
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    background-color: burlywood;
+    color: #222222;
+    padding: 15px;
+    font-family: inherit;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: .5px;
+    border: 0;
+    border-radius: 5px;
+    margin: 1%;
+}
+
+.btn:focus {
+    outline: 0;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.text {
+    margin-top: 30px;
+}
+
+.form-control {
+    position: relative;
+    margin: 5px 0 10px;
+    width: 500px;
+}
+
+.form-control input {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px burlywood solid;
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 16px;
+}
+
+.form-control input:focus, 
+.form-control input:valid {
+    outline: 0;
+    border-bottom-color:burlywood;
+    background-color:ghostwhite;
 }
