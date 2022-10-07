@@ -1,8 +1,13 @@
-import React from 'react'
+import React from 'react';
+// import background from "/bestreadsbookshelf";
+import '../App.css'
+
 
 function Home() {
   return (
-    <div>Home</div>
+    <div className='Home'>
+      <div className='Heading'><h1>Meet your next favourite book</h1></div>  
+    </div>
   )
 }
 

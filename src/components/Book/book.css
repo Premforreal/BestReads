@@ -124,3 +124,53 @@ h2{
     border-bottom-color:burlywood;
     background-color:ghostwhite;
 }
+
+/*-------------------------------------------------------------------------------------------------------------*/
+
+.About{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    margin:5% 30% auto 30% ;
+    padding: 1%;
+    border-radius: 1vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: transform 0.2s; 
+}
+
+
+.Icons {
+    zoom: 150%;
+    width: 100%;
+    margin: 2% auto auto 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+}
+
+.github, .portfolio ,.linkedin, .gmail{
+    transition: transform 0.2s , color 0.1s linear;
+    color: #553b08;
+    width: 0;
+}
+
+.github:hover {
+    transform: scale(110%);
+    color: black;
+}
+
+
+.portfolio:hover{
+    transform: scale(110%);
+    color:darkgreen;
+}
+
+.linkedin:hover {
+    transform: scale(110%);
+    color: #0a66c2;
+}
+
+.gmail:hover {
+    transform: scale(110%);
+    color: #EA4335;
+}

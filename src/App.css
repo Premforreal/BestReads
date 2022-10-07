@@ -5,18 +5,51 @@ margin: 0%;
 
 body{
   background-color:#f4f1ea;
+  font-family: Lato, Helvetica, sans-serif;
 }
 
 .logo{
   color: black;
   font-family: Lato, Helvetica, sans-serif;
-  font-size: 36px;
+  font-size: 30px;
   display: flex;
   flex-direction: row;
 }
 
 h1{
   color: #675544;
-  font-size: 36px;
-  font-weight: 600;
+  font-size: 30px;
+  font-weight: 500;
 }
+
+.Home{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  background-image: url(./background.jpg) ;
+  /* box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22); */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.Home >img{
+  width: 100%;
+  margin-top: 1%;
+  }
+
+  
+.Home >img:hover{
+  box-shadow: none;
+  transform: scale(1); 
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
+  .Heading >h1{
+    font-size: 48px;
+    font-weight: 600;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .Heading{
+    padding: 15% 1% 1% 15%;
+  }
