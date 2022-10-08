@@ -10,11 +10,13 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-const BookDetail = () => {
+const BookUpdate = () => {
+  
   const [inputs, setInputs] = useState();
   const id = useParams().id;
   const [checked, setChecked] = useState(false);
   const history = useNavigate();
+  
   useEffect(() => {
     const fetchHandler = async () => {
       await axios
@@ -31,16 +33,20 @@ const BookDetail = () => {
         name: String(inputs.name),
         author: String(inputs.author),
         description: String(inputs.description),
-        price: Number(inputs.price),
         image: String(inputs.image),
         available: Boolean(checked),
+        rating: Number(inputs.rating),
       })
       .then((res) => res.data);
   };
+  
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     sendRequest().then(() => history("/books"));
   };
+  
+  
   const handleChange = (e) => {
     setInputs((prevState) => ({
       ...prevState,
@@ -68,8 +74,8 @@ const BookDetail = () => {
                 </div>
 
                 <div className="form-control">
-                    <input name='price' type="number" required value={inputs.price} onChange={handleChange}/>
-                    <label>Price</label>
+                    <input name='rating' type="number" required value={inputs.rating} onChange={handleChange}/>
+                    <label>Rating</label>
                 </div>
 
                 <div className="form-control">
@@ -77,7 +83,7 @@ const BookDetail = () => {
                     <label>Image</label>
                 </div>
 
-                Available : <Checkbox name='available' checked={checked} onChange={()=>setChecked(!checked)}/>  
+                Finished reading : <Checkbox name='available' checked={checked} onChange={()=>setChecked(!checked)}/>  
 
                 <button className="btn">Update</button>
 
@@ -87,58 +93,4 @@ const BookDetail = () => {
   </>)
 };
 
-export default BookDetail;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//   return (
-//     <div className="container"><h1>Update Book</h1>
-//       <form onSubmit={handleSubmit}>
-//                 <div className="form-control">
-//                     <input name='name' value={inputs.name} onChange={(e)=>handleChange(e)} type="text" required />
-//                     <label>Name</label>
-//                 </div>
-        
-//                 <div className="form-control">
-//                     <input name='author' type="text" required value={inputs.author} onChange={handleChange}/>
-//                     <label>Author</label>
-//                 </div>
-
-//                 <div className="form-control">
-//                     <input name='description' type="text" required value={inputs.description} onChange={handleChange}/>
-//                     <label>Description</label>
-//                 </div>
-
-//                 <div className="form-control">
-//                     <input name='price' type="number" required value={inputs.price} onChange={handleChange}/>
-//                     <label>Price</label>
-//                 </div>
-
-//                 <div className="form-control">
-//                     <input name='image' type="text" required value={inputs.image} onChange={handleChange}/>
-//                     <label>Image</label>
-//                 </div>
-
-//                 Available : <Checkbox name='available' checked={checked} onChange={()=>setChecked(!checked)}/>  
-
-//                 <button className="btn">Update</button>
-
-//             </form>
-//     </div>
-//   )
-
-// export default BookDetail
+export default BookUpdate;

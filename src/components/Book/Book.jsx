@@ -5,7 +5,7 @@ import './book.css';
 import axios from 'axios';
 
 function Book(props) {
-  const {_id,name,author,description,image,price} = props.book;
+  const {_id,name,author,description,image,rating,available} = props.book;
   const history = useNavigate();
 
 async  function deleteHandler(){
@@ -18,12 +18,15 @@ async  function deleteHandler(){
   return (
     <div className='card'>
       <img src={image} alt={name} />
+      
       <div className='card-details'>
-        <h2>{name}</h2>
-        <article>by {author}</article>
-        <p>{price}ratings</p>
-        <p>{description}</p>
-          <Button LinkComponent={Link} to={`/books/${_id}`}>Update</Button>
+          <h2>{name}</h2>
+          <article>by {author}</article>
+          <p>{rating}ratings</p>
+          {/* <p>{description}</p> */}
+          {available ? 'read' : 'want to read'}
+          <Button LinkComponent={Link} to={`/books/${_id}`}>View</Button>
+          <Button LinkComponent={Link} to={`/books/${_id}/update`}>Update</Button>
           <Button onClick={deleteHandler}>Delete</Button>
       </div>
     </div>

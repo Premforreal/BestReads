@@ -1,19 +1,24 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import './Book/book.css';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
+
+
 function Addbook() {
+
   const history = useNavigate();
   const [inputs, setInputs] = useState({
     name: "",
     description: "",
-    price: "",
+    rating:"",
     author: "",
     image: "",
   });
+
   const [checked, setChecked] = useState(false);
+  
   const handleChange = (e) => {
     setInputs((prevState) => ({
       ...prevState,
@@ -27,7 +32,7 @@ function Addbook() {
         name: String(inputs.name),
         author: String(inputs.author),
         description: String(inputs.description),
-        price: Number(inputs.price),
+        rating: Number(inputs.rating),
         image: String(inputs.image),
         available: Boolean(checked),
       })
@@ -58,9 +63,10 @@ function Addbook() {
                     <label>Description</label>
                 </div>
 
+
                 <div className="form-control">
-                    <input name='price' type="number" required value={inputs.price} onChange={handleChange}/>
-                    <label>Price</label>
+                    <input name='rating' type="number" min={1} max={5} required value={inputs.rating} onChange={handleChange}/>
+                    <label>Rating</label>slider would be better?
                 </div>
 
                 <div className="form-control">
@@ -68,7 +74,7 @@ function Addbook() {
                     <label>Image</label>
                 </div>
 
-                Available : <Checkbox name='available' checked={checked} onChange={()=>setChecked(!checked)}/>  
+                Finished reading : <Checkbox name='available' checked={checked} onChange={()=>setChecked(!checked)}/>  
 
                 <button className="btn">Add</button>
 
