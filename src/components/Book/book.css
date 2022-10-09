@@ -3,10 +3,11 @@
     display: grid;
     grid-template-columns: auto auto auto auto ;
     width: 75%;
-    margin-left: 25vh;
+    margin-left: 30vh;
     padding-top: 5vh;
     font-family: Lato, Helvetica, sans-serif;
 }
+
 
 .card {
     display: flex;
@@ -153,7 +154,7 @@
 }
 
 /*-------------------------------------------------------------------------------------------------------------*/
-@keyframes slideInFromLeft {
+@keyframes zoomIn {
     0% {
       transform: scale(0%);
     }
@@ -175,9 +176,8 @@
 
 
 .About{
-    animation: 0.5s ease-out 0s 1 slideInFromLeft;
-
-
+    animation: 0.5s ease-out 0s 1 zoomIn;
+    transition: transform 0.2s; 
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -186,7 +186,7 @@
     padding: 1%;
     border-radius: 1vh;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transition: transform 0.2s; 
+    
 }
 
 
