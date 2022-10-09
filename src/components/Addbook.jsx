@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 function Addbook() {
 
   const history = useNavigate();
+  
   const [inputs, setInputs] = useState({
     name: "",
     description: "",
@@ -63,16 +64,16 @@ function Addbook() {
                     <label>Description</label>
                 </div>
 
-
-                <div className="form-control">
-                    <input name='rating' type="number" min={1} max={5} required value={inputs.rating} onChange={handleChange}/>
-                    <label>Rating</label>slider would be better?
-                </div>
-
                 <div className="form-control">
                     <input name='image' type="text" required value={inputs.image} onChange={handleChange}/>
                     <label>Image</label>
                 </div>
+
+                {checked ?
+                <div className="form-control">
+                    <input name='rating' type="number" min={1} max={5} required value={inputs.rating} onChange={handleChange}/>
+                    <label>Rating</label>
+                </div> : null}
 
                 Finished reading : <Checkbox name='available' checked={checked} onChange={()=>setChecked(!checked)}/>  
 

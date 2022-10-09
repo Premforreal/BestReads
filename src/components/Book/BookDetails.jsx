@@ -1,11 +1,14 @@
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
+import UpdateIcon from '@mui/icons-material/Update';
 import StarIcon from '@mui/icons-material/Star';
   import axios from "axios";
   import React, { useEffect, useState } from "react";
-  import { useNavigate, useParams } from "react-router-dom";
-  import './book.css'
+  import { useNavigate, useParams,Link } from "react-router-dom";
+  import './book.css';
+  import {Button} from '@mui/material'; 
 
   
   const BookDetails = () => {
@@ -49,6 +52,14 @@ import StarIcon from '@mui/icons-material/Star';
       sendRequest()
     };
 
+
+    async  function deleteHandler(){
+        if(window.confirm('Are you sure ?')){
+      await  axios.delete(`http://localhost:5000/books/${id}`) 
+             .then((res)=>res.data)
+              .then(()=>history("/books"));
+     }}
+
     
   function reviewStars(num) {
     let stars = [];
@@ -64,7 +75,6 @@ import StarIcon from '@mui/icons-material/Star';
     );
   }
 
-
     return (<>
         {inputs && (
       <div className="Book-details" >
@@ -74,6 +84,10 @@ import StarIcon from '@mui/icons-material/Star';
                     id={checked ? 'finished' : 'to-read'}>
               {checked ? 'finished' : 'to read'}
               </button>
+              <div style={{paddingTop:'1vh'}}>
+                  <Button LinkComponent={Link} to={`/books/${id}/update`}><UpdateIcon/></Button>
+                  <Button onClick={deleteHandler}><DeleteRoundedIcon/></Button>
+              </div>
         </div>
         <div className="description">
             <h2>{inputs.name}</h2>

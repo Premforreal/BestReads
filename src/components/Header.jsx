@@ -23,8 +23,8 @@ const [value, setValue] = useState()
                               </div>
                             } />
                 
-                  <Tab LinkComponent={NavLink} to='/add' label='Add'     sx={{color:'#553b08',fontWeight:600,fontSize:'16px',textTransform: 'lowercase'}}/>
-                  <Tab LinkComponent={NavLink} to='/books' label='Books' sx={{color:'#553b08',fontWeight:600,fontSize:'16px',textTransform: 'lowercase'}}/>
+                  <Tab LinkComponent={NavLink} to='/add' label='Add new book'     sx={{color:'#553b08',fontWeight:600,fontSize:'16px',textTransform: 'lowercase'}}/>
+                  <Tab LinkComponent={NavLink} to='/books' label='view all books' sx={{color:'#553b08',fontWeight:600,fontSize:'16px',textTransform: 'lowercase'}}/>
                   <Tab LinkComponent={NavLink} to='/about' label='About' sx={{color:'#553b08',fontWeight:600,fontSize:'16px',textTransform: 'lowercase'}}/>
             </Tabs>  
         </Toolbar>

@@ -1,10 +1,10 @@
 
 .Books{
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    width: 100%;
-    padding-left: 10vh;
-    padding-top: 2vh;
+    grid-template-columns: auto auto auto auto ;
+    width: 75%;
+    margin-left: 25vh;
+    padding-top: 5vh;
     font-family: Lato, Helvetica, sans-serif;
 }
 
@@ -12,15 +12,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width:40vh;
-    height: 50%;
+    text-align: center;
+    width:25vh;
+    /* height: 50%; */
     max-height: inherit;
     max-width: inherit;
     border-style:2px solid #e5e5e5;
     margin: 1%;
+    margin-bottom: 10%;
     /* padding: 1%; */
     border-radius: 1vh;
     background-color:#f9f9ea;
+    background-color:whitesmoke;
     transition: transform 0.5s;
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
@@ -32,8 +35,8 @@
 }
 
 .card img{   
-    height: 50vh;
-    width: 25vh;
+    height: 25vh;
+    /* width: 25vh; */
     margin: 1%;
     padding: 1%;
 }
@@ -47,17 +50,39 @@
     padding: 2%;
     /* margin: 1%; */
     border-radius: 1vh;
-    background-color:#f9f9ea;
+    background-color:inherit;
     /* transition: transform 0.2s; */
     transition: transform 0.5s;
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 
-h2{
-    font-weight: 500;
+.card-details> h2{
+    font-size: 16px;
+    font-weight: 900;
+    padding: 1%;
 }
 
+
+.card-details> #author{
+    text-align: right;
+    font-size: 14px;
+    font-weight: 400;
+}
+.card-details> p{
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.card-details> .stars{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
 
 /*----------------------------------------------------------------------------*/
 
@@ -128,8 +153,31 @@ h2{
 }
 
 /*-------------------------------------------------------------------------------------------------------------*/
+@keyframes slideInFromLeft {
+    0% {
+      transform: scale(0%);
+    }
+    25%{
+        transform: scale(100%);  
+    }
+
+    50%{
+        transform: scale(125%);  
+    }
+
+    75%{
+        transform: scale(110%);  
+    }
+    100% {
+      transform: scale(100%);
+    }
+  }
+
 
 .About{
+    animation: 0.5s ease-out 0s 1 slideInFromLeft;
+
+
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -208,17 +256,16 @@ h2{
 
 #finished{
  background-color: lightgreen;
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ transform: scale(105%);
 }
 
 #to-read{
     background-color: lightcoral;
-}
-
-.image>button:hover{
-    background-color:mediumaquamarine;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     transform: scale(105%);
 }
+
 
 .image>img{
     /* width: 25%; */
@@ -257,7 +304,7 @@ h2{
     border-top: 1px dashed #553b08;
   }
 
-  .Book-details>.description>.stars{
+.stars{
         display: flex;
         flex-direction: row;
         margin-top: 1%;
