@@ -13,7 +13,6 @@ function Book(props) {
 async  function deleteHandler(){
    await  axios.delete(`http://localhost:5000/books/${_id}`)
           .then((res)=>res.data)
-          //.then(()=>window.location.reload())
            .then(()=>history("/books"));
   }
 
