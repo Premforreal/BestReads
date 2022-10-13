@@ -115,6 +115,32 @@ h1{
     background-color:ghostwhite;
 }
 
+
+
+.home-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  position: fixed;
+  bottom: 15vh;
+  width: 100%;
+  height: 30vh;
+  padding:0vh 30vh 0vh 50vh;
+  color: #675544;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+div[class^="item"]{
+  width: 50vh;
+}
+
+div[class^="item"] > p{
+  font-size: 14px;
+  padding-top: 1vh;
+}
+
 .footer{
   position: fixed;
   bottom: 0;
@@ -122,7 +148,6 @@ h1{
   height: 5vh;
   text-align: center;
   background-color: #f9f9e9;
-  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr; 
   padding-left: 30vh;

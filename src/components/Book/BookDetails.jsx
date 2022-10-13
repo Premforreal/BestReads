@@ -1,6 +1,4 @@
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import UpdateIcon from '@mui/icons-material/Update';
 import StarIcon from '@mui/icons-material/Star';
@@ -94,7 +92,7 @@ import StarIcon from '@mui/icons-material/Star';
             <h4>by : {inputs.author}  </h4>
             {reviewStars(inputs.rating)}
             <hr className="new1"/>
-            <p>{inputs.description}.</p>
+            <p>{inputs.description}</p>
             {/* <p>Reviews : </p> */}
         </div>
       </div>
@@ -103,37 +101,3 @@ import StarIcon from '@mui/icons-material/Star';
   };
   
   export default BookDetails;
-/*
-  <form onSubmit={handleSubmit}>
-                  <div className="form-control">
-                      <input name='name' value={inputs.name} onChange={(e)=>handleChange(e)} type="text" required />
-                      <label>Name</label>
-                  </div>
-          
-                  <div className="form-control">
-                      <input name='author' type="text" required value={inputs.author} onChange={handleChange}/>
-                      <label>Author</label>
-                  </div>
-  
-                  <div className="form-control">
-                      <input name='description' type="text" required value={inputs.description} onChange={handleChange}/>
-                      <label>Description</label>
-                  </div>
-  
-                  <div className="form-control">
-                      <input name='rating' type="number" required value={inputs.rating} onChange={handleChange}/>
-                      <label>Rating</label>
-                  </div>
-  
-                  <div className="form-control">
-                      <input name='image' type="text" required value={inputs.image} onChange={handleChange}/>
-                      <label>Image</label>
-                  </div>
-  
-                  Finished reading : <Checkbox name='available' checked={checked} onChange={()=>setChecked(!checked)}/>  
-  
-                  <button className="btn">Update</button>
-  
-              </form>
-
-              */

@@ -32,20 +32,16 @@ async  function deleteHandler(){
   }
 
   return (
-    <div className='card'>
+    <Link className='card' to={`/books/${_id}`} style={{textDecoration: 'none'}}>
+    <div className='card-img-holder'>
       <img src={image} alt={name} />
-      
+      </div >
       <div className='card-details'>
-          <h2>{name}</h2>
+          <h3>{name}</h3>
           <p id='author'>by {author}</p>
           {reviewStars(rating)}
-          {/* <p>{description}</p> */}
-          {/* <p>{available ? 'finished' : 'to read'}</p> */}
-          <Button LinkComponent={Link} to={`/books/${_id}`}>View</Button>
-          {/* <Button LinkComponent={Link} to={`/books/${_id}/update`}>Update</Button>
-          <Button onClick={deleteHandler}>Delete</Button> */}
-      </div>
-    </div>
+      </div>    
+    </Link>
   )
 }
 
