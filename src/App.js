@@ -13,6 +13,7 @@ function App() {
   return (
 <React.Fragment>
   <Header/>
+    <Home/>
   <main>
     <Routes>
         <Route path='/' element={<Home/>} exact/>
