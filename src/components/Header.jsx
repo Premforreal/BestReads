@@ -15,7 +15,7 @@ const [value, setValue] = useState()
                     value={value} onChange={(e,val)=>{setValue(val)}} 
                     sx={{color:'black',display: 'grid'}}>
 
-                  <Tab  LinkComponent={NavLink} to='/' 
+                  <Tab  LinkComponent={NavLink} to='/bestreads' 
                       sx={{ textTransform: 'lowercase',ml:10,mr:10 }}
                       label={ <div className='logo'>
                                   <LocalLibraryIcon sx={{color:'#553b08',fontSize:'40px'}}/>
