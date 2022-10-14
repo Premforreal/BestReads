@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/bestreads/static/css/main.dc71982c.css",
-    "main.js": "/bestreads/static/js/main.c01fab4f.js",
+    "main.js": "/bestreads/static/js/main.edaa4805.js",
     "static/media/background.jpg": "/bestreads/static/media/background.17c55cd4559152c4b2a5.jpg",
     "index.html": "/bestreads/index.html",
     "main.dc71982c.css.map": "/bestreads/static/css/main.dc71982c.css.map",
-    "main.c01fab4f.js.map": "/bestreads/static/js/main.c01fab4f.js.map"
+    "main.edaa4805.js.map": "/bestreads/static/js/main.edaa4805.js.map"
   },
   "entrypoints": [
     "static/css/main.dc71982c.css",
-    "static/js/main.c01fab4f.js"
+    "static/js/main.edaa4805.js"
   ]
 }
