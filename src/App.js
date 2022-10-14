@@ -13,10 +13,10 @@ function App() {
   return (
 <React.Fragment>
   <Header/>
-    <Home/>
+//     <Home/>
   <main>
     <Routes>
-        <Route path='/' element={<Home/>} exact/>
+        <Route path='/bestreads' element={<Home/>} exact/>
         <Route path='/add' element={<Addbook/>} exact/>
         <Route path='/about' element={<About/>} exact/>
         <Route path='/books' element={<Books/>} exact/>
