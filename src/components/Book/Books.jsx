@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 import Book from './Book';
 
-const URL = "http://localhost:5000/books";
+const URL = "https://best--reads.herokuapp.com/books";/*http://localhost:5000/books */
 const fetchHandler = async()=>{
 return await axios.get(URL).then((res)=>res.data)
 }

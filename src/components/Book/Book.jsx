@@ -11,7 +11,7 @@ function Book(props) {
   const history = useNavigate();
 
 async  function deleteHandler(){
-   await  axios.delete(`http://localhost:5000/books/${_id}`)
+   await  axios.delete(`https://best--reads.herokuapp.com/books/${_id}`)/*http://localhost:5000/books/${_id}*/
           .then((res)=>res.data)
            .then(()=>history("/books"));
   }

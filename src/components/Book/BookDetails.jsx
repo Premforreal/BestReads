@@ -15,11 +15,12 @@ import StarIcon from '@mui/icons-material/Star';
     const id = useParams().id;
     const [checked, setChecked] = useState(false);
     const history = useNavigate();
+    const [alert,setAlert] =useState(false);
     
     useEffect(() => {
       const fetchHandler = async () => {
         await axios
-          .get(`http://localhost:5000/books/${id}`)
+          .get(`https://best--reads.herokuapp.com/books/${id}`) /*http://localhost:5000/books/${id} */
           .then((res) => res.data)
           .then((data) => setInputs(data.book));
       };
@@ -28,7 +29,7 @@ import StarIcon from '@mui/icons-material/Star';
   
     const sendRequest = async () => {
       await axios
-        .put(`http://localhost:5000/books/${id}`, {
+        .put(`https://best--reads.herokuapp.com/books/${id}`, {
           name: String(inputs.name),
           author: String(inputs.author),
           description: String(inputs.description),
@@ -50,13 +51,11 @@ import StarIcon from '@mui/icons-material/Star';
       sendRequest()
     };
 
-
     async  function deleteHandler(){
-        if(window.confirm('Are you sure ?')){
-      await  axios.delete(`http://localhost:5000/books/${id}`) 
+      await  axios.delete(`https://best--reads.herokuapp.com/books/${id}`) 
              .then((res)=>res.data)
               .then(()=>history("/books"));
-     }}
+     }
 
     
   function reviewStars(num) {
@@ -84,7 +83,7 @@ import StarIcon from '@mui/icons-material/Star';
               </button>
               <div style={{paddingTop:'1vh'}}>
                   <Button LinkComponent={Link} to={`/books/${id}/update`}><UpdateIcon/></Button>
-                  <Button onClick={deleteHandler}><DeleteRoundedIcon/></Button>
+                  <Button onClick={()=>setAlert(!alert)}><DeleteRoundedIcon/></Button>
               </div>
         </div>
         <div className="description">
@@ -97,6 +96,15 @@ import StarIcon from '@mui/icons-material/Star';
         </div>
       </div>
     )}
+    
+    {alert &&
+    <div className="popup">
+          Are you sure you want to delete this book?
+          <div className='btns'>
+          <button id='no' onClick={()=>setAlert(!alert)}>No</button>
+          <button id='yes' onClick={deleteHandler}>Yes</button>
+          </div>
+        </div>}
     </>)
   };
   
