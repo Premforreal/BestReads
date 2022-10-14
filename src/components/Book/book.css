@@ -185,6 +185,7 @@ a:-webkit-any-link {
     padding: 1%;
     border-radius: 1vh;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: #675544;
     
 }
 
@@ -199,7 +200,6 @@ a:-webkit-any-link {
 
 .github, .portfolio ,.linkedin, .gmail{
     transition: transform 0.2s , color 0.1s linear;
-    color: #553b08;
     width: 0;
 }
 
@@ -224,7 +224,16 @@ a:-webkit-any-link {
     color: #EA4335;
 }
 
+.list{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.coming-soon{
+    width: 100%;
+}
 /*-------------------------------Each book's individual page----------------------------------------------*/
 
 .Book-details{
